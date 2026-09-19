@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Denis Mungai — Software Engineer & Founder | Nairobi, Kenya</title>
+<title>Denis Mungai - Software Engineer & Founder | Nairobi, Kenya</title>
 <meta name="description" content="Denis Mungai is a software engineer and founder of 45Creatives based in Nairobi, Kenya. Building web applications, automation systems, and digital products with React, Python, Node.js, and PostgreSQL.">
 <meta name="keywords" content="Software Engineer Kenya, Full Stack Developer Kenya, Web Developer Nairobi, React Developer Kenya, Web Application Developer Nairobi, AI Automation Developer Kenya">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Denis Mungai — Software Engineer & Founder">
+<meta property="og:title" content="Denis Mungai - Software Engineer & Founder">
 <meta property="og:description" content="Software engineer based in Nairobi, Kenya. Building web applications, automation systems, and digital products. Founder of 45Creatives.">
 <meta property="og:url" content="https://www.denismungai.dev/">
 <meta property="og:image" content="https://www.denismungai.dev/og-image.jpg">
@@ -19,7 +19,7 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Denis Mungai — Software Engineer & Founder">
+<meta name="twitter:title" content="Denis Mungai - Software Engineer & Founder">
 <meta name="twitter:description" content="Software engineer based in Nairobi, Kenya. Building web applications, automation systems, and digital products.">
 <meta name="twitter:image" content="https://www.denismungai.dev/og-image.jpg">
 
@@ -82,7 +82,7 @@
     <div class="navbar">
       <a href="#main" class="logo" aria-label="Denis Mungai, home">
         <span class="logo-mark" aria-hidden="true">DM</span>
-        <span>Denis Mungai</span>
+        <span class="logo-text">Denis Mungai</span>
       </a>
       <nav class="links" aria-label="Primary">
         <a href="#work">Work</a>
@@ -95,25 +95,33 @@
         <a href="assets/resume/Denis_Mungai_Resume.docx" class="btn btn-ghost btn-sm" download>Resume</a>
         <a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a>
         <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
     </div>
   </div>
 </header>
 
-<div id="mobileMenu">
-  <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-  </button>
-  <a href="#work">Work</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#stack">Stack</a>
-  <a href="#contact">Contact</a>
+<div id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site Navigation" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <a href="#main" class="logo mobile-menu-logo" aria-label="Denis Mungai, home">
+      <span class="logo-mark" aria-hidden="true">DM</span>
+      <span>Denis Mungai</span>
+    </a>
+    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav-links" aria-label="Mobile Navigation Links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <div class="mobile-cta">
     <a href="#contact" class="btn btn-primary">Let's Talk
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
     <a href="assets/resume/Denis_Mungai_Resume.docx" class="btn btn-ghost" download>Download Resume</a>
   </div>
@@ -125,17 +133,17 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-grid">
-        <div>
+        <div class="hero-content">
           <p class="eyebrow">Software Engineer · Nairobi, Kenya</p>
           <h1>Denis Mungai</h1>
           <p class="hero-subtitle">Software Engineer &amp; Founder</p>
           <p class="hero-sub">I build web applications, automation systems, and digital products. Founder of <strong>45Creatives</strong>, a web studio based in Nairobi, Kenya.</p>
           <div class="hero-ctas">
             <a href="#work" class="btn btn-primary">View my work
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a href="#contact" class="link-arrow">Let's work together
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
@@ -155,14 +163,14 @@
       <div class="section-head reveal">
         <p class="eyebrow">Work</p>
         <h2>Selected Projects</h2>
-        <p>A mix of client work, personal tools, and independent research — each one built and shipped.</p>
+        <p>A mix of client work, personal tools, and independent research - each one built and shipped.</p>
       </div>
 
       <div class="filter-row reveal" role="group" aria-label="Filter projects by category">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web &amp; Design</button>
-        <button class="filter-btn" data-filter="platform">Platforms</button>
-        <button class="filter-btn" data-filter="ai">AI &amp; Automation</button>
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="web" aria-pressed="false">Web &amp; Design</button>
+        <button class="filter-btn" data-filter="platform" aria-pressed="false">Platforms</button>
+        <button class="filter-btn" data-filter="ai" aria-pressed="false">AI &amp; Automation</button>
       </div>
 
       <div class="projects-grid" id="projectsGrid">
@@ -178,7 +186,7 @@
             </div>
             <div class="project-links">
               <a href="https://www.45creative.co.ke/" class="project-link" target="_blank" rel="noopener">Live site
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </div>
@@ -210,7 +218,7 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/DenisMungai" class="project-link" target="_blank" rel="noopener">GitHub
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </div>
@@ -259,7 +267,7 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/DenisMungai" class="project-link" target="_blank" rel="noopener">GitHub
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </div>
@@ -288,9 +296,9 @@
         <div class="reveal">
           <p class="eyebrow">About</p>
           <div class="about-content">
-            <p>I started programming by trying to fix things that were broken. That turned into building things from scratch — websites at first, then full-stack applications, then trading systems and automation tools.</p>
+            <p>I started programming by trying to fix things that were broken. That turned into building things from scratch - websites at first, then full-stack applications, then trading systems and automation tools.</p>
             <p>Today I run <strong>45Creatives</strong>, a web studio where I design and build websites, dashboards, and brand systems for clients. Independently, I work on projects like <strong>algorithmic trading systems in MQL5 and Python</strong>, a <strong>billing platform that integrates M-Pesa and Mikrotik</strong>, and various automation tools.</p>
-            <p>I'm most interested in work that involves solving a real problem with code — whether that's a client website that needs to convert visitors, a backend system that needs to handle payments reliably, or a data pipeline that needs to process market data in real time.</p>
+            <p>I'm most interested in work that involves solving a real problem with code - whether that's a client website that needs to convert visitors, a backend system that needs to handle payments reliably, or a data pipeline that needs to process market data in real time.</p>
           </div>
         </div>
       </div>
@@ -353,7 +361,7 @@
         <div class="service-card reveal">
           <p class="service-num mono">01</p>
           <h4>Website Development</h4>
-          <p>Business websites and landing pages built from scratch — custom code, no page-builder templates.</p>
+          <p>Business websites and landing pages built from scratch - custom code, no page-builder templates.</p>
         </div>
         <div class="service-card reveal">
           <p class="service-num mono">02</p>
@@ -368,7 +376,7 @@
         <div class="service-card reveal">
           <p class="service-num mono">04</p>
           <h4>UI/UX &amp; Brand Design</h4>
-          <p>Interfaces and brand systems with clear typography, color, and layout — designed in Figma, built in code.</p>
+          <p>Interfaces and brand systems with clear typography, color, and layout - designed in Figma, built in code.</p>
         </div>
         <div class="service-card reveal">
           <p class="service-num mono">05</p>

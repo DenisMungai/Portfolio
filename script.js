@@ -1,31 +1,80 @@
 // Year
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
 // Mobile menu
 const burgerBtn = document.getElementById('burgerBtn');
 const closeMenuBtn = document.getElementById('closeMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
-burgerBtn.addEventListener('click', () => {
+function openMenu() {
+  if (!mobileMenu || !burgerBtn) return;
   mobileMenu.classList.add('open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
   burgerBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
-});
 
-function closeMenu() {
-  mobileMenu.classList.remove('open');
-  burgerBtn.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
+  // Set focus to the close button or first interactive element
+  const focusable = mobileMenu.querySelectorAll('button, a[href]');
+  if (focusable.length > 0) {
+    focusable[0].focus();
+  }
 }
 
-closeMenuBtn.addEventListener('click', closeMenu);
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+function closeMenu() {
+  if (!mobileMenu || !burgerBtn) return;
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  burgerBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  burgerBtn.focus();
+}
 
-// Close mobile menu on Escape key
+if (burgerBtn && mobileMenu) {
+  burgerBtn.addEventListener('click', openMenu);
+}
+
+if (closeMenuBtn) {
+  closeMenuBtn.addEventListener('click', closeMenu);
+}
+
+if (mobileMenu) {
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Trap focus and handle Escape inside mobile menu
+  mobileMenu.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusableEls = mobileMenu.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusableEls.length === 0) return;
+      const firstEl = focusableEls[0];
+      const lastEl = focusableEls[focusableEls.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
+  });
+}
+
+// Global escape key listener
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+  if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
     closeMenu();
-    burgerBtn.focus();
   }
 });
 
@@ -54,8 +103,12 @@ const projectCards = document.querySelectorAll('#projectsGrid .project-card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
+    filterBtns.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
     const filter = btn.getAttribute('data-filter');
     projectCards.forEach(card => {
       const show = filter === 'all' || card.getAttribute('data-cat') === filter;
@@ -64,7 +117,7 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Contact form — AJAX submit
+// Contact form - AJAX submit
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   const submitBtn = document.getElementById('submitBtn');
@@ -74,7 +127,7 @@ if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     submitBtn.disabled = true;
-    submitBtnText.textContent = 'Sending\u2026';
+    submitBtnText.textContent = 'Sending...';
     formStatus.textContent = '';
     formStatus.style.color = '';
 
@@ -86,7 +139,7 @@ if (contactForm) {
       });
 
       if (response.ok) {
-        formStatus.textContent = 'Message sent \u2014 I\u2019ll get back to you within 24 hours.';
+        formStatus.textContent = 'Message sent - I will get back to you within 24 hours.';
         formStatus.style.color = '#4ADE80';
         contactForm.reset();
       } else {
