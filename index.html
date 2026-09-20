@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Denis Mungai - Software Engineer & Founder | Nairobi, Kenya</title>
-<meta name="description" content="Denis Mungai is a software engineer and founder of 45Creatives based in Nairobi, Kenya. Building web applications, automation systems, and digital products with React, Python, Node.js, and PostgreSQL.">
-<meta name="keywords" content="Software Engineer Kenya, Full Stack Developer Kenya, Web Developer Nairobi, React Developer Kenya, Web Application Developer Nairobi, AI Automation Developer Kenya">
+<meta name="description" content="Denis Mungai is a software engineer and founder of 45Creatives based in Nairobi, Kenya. Building web applications, automation systems, and high-performing digital products.">
+<meta name="keywords" content="Software Engineer Kenya, Full Stack Developer Kenya, Web Developer Nairobi, React Developer Kenya, AI Automation Developer Kenya">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.denismungai.dev/">
 
@@ -49,27 +49,11 @@
   ]
 }
 </script>
-<!-- JSON-LD: Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "45Creatives",
-  "founder": "Denis Mungai",
-  "areaServed": "Kenya",
-  "url": "https://www.45creative.co.ke/",
-  "description": "Web studio offering website design, development, branding, and SEO for growing businesses in Kenya.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Nairobi",
-    "addressCountry": "KE"
-  }
-}
-</script>
 
+<!-- Google Fonts: Oswald (Bold Condensed Display) & Plus Jakarta Sans / Inter -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -77,510 +61,870 @@
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<header>
-  <div class="wrap">
-    <div class="navbar">
-      <a href="#main" class="logo" aria-label="Denis Mungai, home">
-        <span class="logo-mark" aria-hidden="true">DM</span>
-        <span class="logo-text">Denis Mungai</span>
+<!-- ================= NAVIGATION ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-wrap">
+    <a href="#main" class="logo" aria-label="Denis Mungai, home">
+      <span class="logo-mark" aria-hidden="true">DM</span>
+      <span class="logo-text">Denis Mungai</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary Navigation">
+      <a href="#work" class="nav-link">WORK</a>
+      <a href="#capabilities" class="nav-link">CAPABILITIES</a>
+      <a href="#about" class="nav-link">ABOUT</a>
+      <a href="#process" class="nav-link">PROCESS</a>
+      <a href="#contact" class="nav-link">CONTACT</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#contact" class="btn-pill-glow">
+        <span>LET'S TALK</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
-      <nav class="links" aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#stack">Stack</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-cta">
-        <a href="assets/resume/Denis_Mungai_Resume.docx" class="btn btn-ghost btn-sm" download>Resume</a>
-        <a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a>
-        <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-      </div>
+      <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
 
-<div id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site Navigation" aria-hidden="true">
-  <div class="mobile-menu-header">
-    <a href="#main" class="logo mobile-menu-logo" aria-label="Denis Mungai, home">
+<!-- Mobile Navigation Drawer -->
+<div id="mobileMenu" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Site Navigation" aria-hidden="true">
+  <div class="mobile-drawer-header">
+    <a href="#main" class="logo">
       <span class="logo-mark" aria-hidden="true">DM</span>
-      <span>Denis Mungai</span>
+      <span class="logo-text">Denis Mungai</span>
     </a>
-    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <button class="drawer-close-btn" id="closeMenuBtn" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
     </button>
   </div>
-  <nav class="mobile-nav-links" aria-label="Mobile Navigation Links">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#stack">Stack</a>
-    <a href="#contact">Contact</a>
+  <nav class="mobile-nav-menu">
+    <a href="#work" class="mobile-nav-link">WORK</a>
+    <a href="#capabilities" class="mobile-nav-link">CAPABILITIES</a>
+    <a href="#about" class="mobile-nav-link">ABOUT</a>
+    <a href="#process" class="mobile-nav-link">PROCESS</a>
+    <a href="#contact" class="mobile-nav-link">CONTACT</a>
   </nav>
-  <div class="mobile-cta">
-    <a href="#contact" class="btn btn-primary">Let's Talk
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="mobile-drawer-cta">
+    <a href="#contact" class="btn-pill-glow full-width">
+      <span>LET'S TALK</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </a>
-    <a href="assets/resume/Denis_Mungai_Resume.docx" class="btn btn-ghost" download>Download Resume</a>
+    <a href="assets/resume/Denis_Mungai_Resume.docx" class="btn-ghost-sm" download>DOWNLOAD RESUME ↓</a>
   </div>
 </div>
 
 <main id="main">
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section">
     <div class="wrap">
       <div class="hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">Software Engineer · Nairobi, Kenya</p>
-          <h1>Denis Mungai</h1>
-          <p class="hero-subtitle">Software Engineer &amp; Founder</p>
-          <p class="hero-sub">I build web applications, automation systems, and digital products. Founder of <strong>45Creatives</strong>, a web studio based in Nairobi, Kenya.</p>
-          <div class="hero-ctas">
-            <a href="#work" class="btn btn-primary">View my work
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        
+        <!-- Hero Left Column -->
+        <div class="hero-left">
+          <p class="hero-eyebrow">DIGITAL EXPERIENCES THAT INSPIRE</p>
+          <h1 class="hero-display-title">
+            <span class="title-line">SOFTWARE</span>
+            <span class="title-line">ENGINEER</span>
+          </h1>
+          <p class="hero-description">
+            I design and build elegant, high-performing digital experiences, web applications, and automation systems that merge strategy, aesthetics, and technology.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#work" class="hero-btn-primary">
+              <span>VIEW MY WORK</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </a>
-            <a href="#contact" class="link-arrow">Let's work together
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="assets/resume/Denis_Mungai_Resume.docx" class="hero-btn-resume" download>
+              <span>DOWNLOAD RESUME</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </a>
           </div>
         </div>
 
-        <div class="hero-photo-wrap">
-          <div class="hero-photo">
-            <img src="assets/img/profile/denis-mungai-pose.jpg" alt="Denis Mungai, Software Engineer based in Nairobi, Kenya" loading="eager" width="512" height="633">
+        <!-- Hero Right Column (Portrait + Ambient Accents) -->
+        <div class="hero-right">
+          <div class="hero-portrait-stage">
+            <div class="hero-ambient-glow" aria-hidden="true"></div>
+            
+            <!-- Sparkle Stars -->
+            <div class="hero-sparkle hero-sparkle--top" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 0L14 9.5L24 12L14 14.5L12 24L10 14.5L0 12L10 9.5L12 0Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="hero-sparkle hero-sparkle--mid" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M12 0L14 9.5L24 12L14 14.5L12 24L10 14.5L0 12L10 9.5L12 0Z" fill="currentColor"/>
+              </svg>
+            </div>
+
+            <!-- Portrait Picture -->
+            <div class="hero-image-wrapper">
+              <img 
+                src="assets/img/profile/denis-mungai-pose.jpg" 
+                alt="Denis Mungai - Software Engineer & Founder" 
+                class="hero-portrait-img"
+                loading="eager" 
+                width="512" 
+                height="633"
+              >
+            </div>
+
+            <!-- Floating Badge -->
+            <a href="#contact" class="hero-floating-badge" aria-label="Available for freelance projects">
+              <span class="badge-sub">AVAILABLE FOR</span>
+              <span class="badge-main">
+                FREELANCE
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="badge-tag">PROJECTS</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS BAR ================= -->
+  <section class="stats-section">
+    <div class="wrap">
+      <div class="stats-bar-card">
+        
+        <div class="stat-col">
+          <div class="stat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L13.8 8.6L20.4 10.4L13.8 12.2L12 18.8L10.2 12.2L3.6 10.4L10.2 8.6L12 2Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="stat-number">4+</div>
+          <div class="stat-label">YEARS EXPERIENCE</div>
+        </div>
+
+        <div class="stat-col">
+          <div class="stat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="stat-number">30+</div>
+          <div class="stat-label">PROJECTS COMPLETED</div>
+        </div>
+
+        <div class="stat-col">
+          <div class="stat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2M6 3h12v7a6 6 0 01-12 0V3zM12 16v5M8 21h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="stat-number">18+</div>
+          <div class="stat-label">HAPPY CLIENTS</div>
+        </div>
+
+        <div class="stat-col">
+          <div class="stat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="stat-number">6+</div>
+          <div class="stat-label">COUNTRIES REACHED</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED WORK ================= -->
+  <section id="work" class="featured-work-section">
+    <div class="wrap">
+      
+      <div class="section-title-row">
+        <div class="section-title-left">
+          <h2 class="section-heading">FEATURED WORK</h2>
+        </div>
+        <div class="section-title-right">
+          <div class="project-filter-pills" role="group" aria-label="Filter projects">
+            <button class="filter-pill active" data-filter="featured">FEATURED</button>
+            <button class="filter-pill" data-filter="all">ALL PROJECTS</button>
+            <button class="filter-pill" data-filter="web">WEB</button>
+            <button class="filter-pill" data-filter="platform">PLATFORMS</button>
+            <button class="filter-pill" data-filter="ai">AI &amp; QUANT</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Grid (Matches the 3-column prominent card layout) -->
+      <div class="work-cards-grid" id="projectsGrid">
+        
+        <!-- Project 1: TaskFlow Management -->
+        <article class="work-card reveal" data-cat="platform" data-featured="true">
+          <div class="work-card-thumb">
+            <img src="assets/img/projects/taskflow-workflow.jpg" alt="TaskFlow Task Management System" loading="lazy" width="730" height="885">
+            <div class="thumb-overlay"></div>
+          </div>
+          <div class="work-card-content">
+            <div class="work-card-info">
+              <h3 class="work-card-title">TaskFlow Dashboard</h3>
+              <p class="work-card-category">
+                <span>UI/UX &amp; FULL-STACK</span>
+                <span>WEB APPLICATION</span>
+              </p>
+            </div>
+            <a href="https://github.com/DenisMungai" class="work-card-arrow" target="_blank" rel="noopener" aria-label="View TaskFlow project details">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2: 45Creatives Studio -->
+        <article class="work-card reveal" data-cat="web" data-featured="true">
+          <div class="work-card-thumb work-card-thumb--center">
+            <img src="assets/img/projects/45creatives-logo.png" alt="45Creatives Agency Studio" loading="lazy" width="900" height="600">
+            <div class="thumb-overlay"></div>
+          </div>
+          <div class="work-card-content">
+            <div class="work-card-info">
+              <h3 class="work-card-title">45Creatives Studio</h3>
+              <p class="work-card-category">
+                <span>WEBSITE DESIGN</span>
+                <span>BRANDING &amp; SYSTEMS</span>
+              </p>
+            </div>
+            <a href="https://www.45creative.co.ke/" class="work-card-arrow" target="_blank" rel="noopener" aria-label="Visit 45Creatives studio site">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3: XAUUSD Quant System -->
+        <article class="work-card reveal" data-cat="ai" data-featured="true">
+          <div class="work-card-thumb">
+            <img src="assets/img/projects/xauusd-data-tunnel.jpg" alt="XAUUSD Quantitative Trading Research" loading="lazy" width="562" height="1000">
+            <div class="thumb-overlay"></div>
+          </div>
+          <div class="work-card-content">
+            <div class="work-card-info">
+              <h3 class="work-card-title">Quant Intelligence</h3>
+              <p class="work-card-category">
+                <span>MACHINE LEARNING</span>
+                <span>FINANCIAL ENGINEERING</span>
+              </p>
+            </div>
+            <a href="https://github.com/DenisMungai" class="work-card-arrow" target="_blank" rel="noopener" aria-label="View XAUUSD Quant Research on GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4: Novia Internet ISP -->
+        <article class="work-card reveal" data-cat="web" data-featured="false" style="display: none;">
+          <div class="work-card-thumb">
+            <img src="assets/img/projects/novia-network.jpg" alt="Novia Internet ISP portal" loading="lazy" width="736" height="736">
+            <div class="thumb-overlay"></div>
+          </div>
+          <div class="work-card-content">
+            <div class="work-card-info">
+              <h3 class="work-card-title">Novia Network ISP</h3>
+              <p class="work-card-category">
+                <span>WEBSITE &amp; PORTAL</span>
+                <span>RESPONSIVE FRONTEND</span>
+              </p>
+            </div>
+            <a href="#contact" class="work-card-arrow" aria-label="Inquire about Novia Network ISP project">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 5: Wi-Fi Billing & Payments -->
+        <article class="work-card reveal" data-cat="platform" data-featured="false" style="display: none;">
+          <div class="work-card-thumb work-card-thumb--glyph">
+            <div class="glyph-card-preview">
+              <span class="glyph-badge">M-PESA + ROUTEROS</span>
+              <span class="glyph-large">BILLING</span>
+            </div>
+            <div class="thumb-overlay"></div>
+          </div>
+          <div class="work-card-content">
+            <div class="work-card-info">
+              <h3 class="work-card-title">Wi-Fi Billing Gateway</h3>
+              <p class="work-card-category">
+                <span>FINTECH &amp; HARDWARE</span>
+                <span>FASTAPI &amp; POSTGRESQL</span>
+              </p>
+            </div>
+            <a href="#contact" class="work-card-arrow" aria-label="Learn about Wi-Fi Billing System">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 6: WakaWaka Algorithmic EA -->
+        <article class="work-card reveal" data-cat="ai" data-featured="false" style="display: none;">
+          <div class="work-card-thumb">
+            <img src="assets/img/projects/wakawaka-motodroid.jpg" alt="WakaWaka Algorithmic Trading EA" loading="lazy" width="591" height="739">
+            <div class="thumb-overlay"></div>
+          </div>
+          <div class="work-card-content">
+            <div class="work-card-info">
+              <h3 class="work-card-title">WakaWaka Trading EA</h3>
+              <p class="work-card-category">
+                <span>ALGORITHMIC TRADING</span>
+                <span>MQL5 &amp; AUTOMATION</span>
+              </p>
+            </div>
+            <a href="#contact" class="work-card-arrow" aria-label="Inquire about WakaWaka Trading System">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAPABILITIES & TECH / EDUCATION (SPLIT SECTION) ================= -->
+  <section id="capabilities" class="capabilities-section">
+    <div class="wrap">
+      <div class="split-two-col">
+        
+        <!-- Left Column: Core Capabilities -->
+        <div class="capabilities-left">
+          <h2 class="section-heading">CORE CAPABILITIES</h2>
+          
+          <div class="capabilities-grid">
+            
+            <!-- Capability 1 -->
+            <div class="capability-item reveal">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2 2l7.586 7.586" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <circle cx="11" cy="11" r="2" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <div class="capability-body">
+                <h4 class="capability-title">UI/UX DESIGN</h4>
+                <p class="capability-desc">Crafting intuitive, user-centered interfaces and interactions that drive engagement and delight.</p>
+              </div>
+            </div>
+
+            <!-- Capability 2 -->
+            <div class="capability-item reveal">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="capability-body">
+                <h4 class="capability-title">WEB DESIGN &amp; DEV</h4>
+                <p class="capability-desc">Designing responsive, modern websites that communicate brand identity, purpose, and credibility.</p>
+              </div>
+            </div>
+
+            <!-- Capability 3 -->
+            <div class="capability-item reveal">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L13.8 8.6L20.4 10.4L13.8 12.2L12 18.8L10.2 12.2L3.6 10.4L10.2 8.6L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="capability-body">
+                <h4 class="capability-title">BRANDING &amp; IDENTITY</h4>
+                <p class="capability-desc">Building visual identities and digital assets that connect, inspire, and leave a lasting impression.</p>
+              </div>
+            </div>
+
+            <!-- Capability 4 -->
+            <div class="capability-item reveal">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M13 13l6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="capability-body">
+                <h4 class="capability-title">INTERACTION DESIGN</h4>
+                <p class="capability-desc">Creating smooth, meaningful micro-interactions that elevate the digital product user experience.</p>
+              </div>
+            </div>
+
+            <!-- Capability 5 -->
+            <div class="capability-item reveal">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="capability-body">
+                <h4 class="capability-title">DESIGN SYSTEMS</h4>
+                <p class="capability-desc">Building scalable, component-driven design systems that ensure consistency and speed up delivery.</p>
+              </div>
+            </div>
+
+            <!-- Capability 6 -->
+            <div class="capability-item reveal">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <div class="capability-body">
+                <h4 class="capability-title">PROTOTYPING &amp; APIS</h4>
+                <p class="capability-desc">Turning concepts into interactive prototypes, robust REST APIs, and automated production systems.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Tools & Technologies + Education -->
+        <div class="capabilities-right">
+          
+          <!-- Card 1: Tools & Technologies -->
+          <div class="tools-card reveal">
+            <h3 class="card-subtitle">TOOLS &amp; TECHNOLOGIES</h3>
+            <div class="tools-grid">
+              
+              <div class="tool-badge">
+                <img src="assets/icons/figma.svg" alt="Figma" class="tool-icon" width="20" height="20">
+                <span class="tool-name">Figma</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/react.svg" alt="React" class="tool-icon" width="20" height="20">
+                <span class="tool-name">React</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/nextdotjs.svg" alt="Next.js" class="tool-icon tool-icon--invert" width="20" height="20">
+                <span class="tool-name">Next.js</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/typescript.svg" alt="TypeScript" class="tool-icon" width="20" height="20">
+                <span class="tool-name">TypeScript</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/framer.svg" alt="Framer" class="tool-icon tool-icon--invert" width="20" height="20">
+                <span class="tool-name">Framer</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/python.svg" alt="Python" class="tool-icon" width="20" height="20">
+                <span class="tool-name">Python</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/nodedotjs.svg" alt="Node.js" class="tool-icon" width="20" height="20">
+                <span class="tool-name">Node.js</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/postgresql.svg" alt="PostgreSQL" class="tool-icon" width="20" height="20">
+                <span class="tool-name">PostgreSQL</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/tailwindcss.svg" alt="Tailwind CSS" class="tool-icon" width="20" height="20">
+                <span class="tool-name">Tailwind</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/github.svg" alt="GitHub" class="tool-icon tool-icon--invert" width="20" height="20">
+                <span class="tool-name">GitHub</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/scikitlearn.svg" alt="scikit-learn" class="tool-icon" width="20" height="20">
+                <span class="tool-name">scikit-learn</span>
+              </div>
+
+              <div class="tool-badge">
+                <img src="assets/icons/wordpress.svg" alt="WordPress" class="tool-icon" width="20" height="20">
+                <span class="tool-name">WordPress</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Card 2: Certifications & Education -->
+          <div class="education-card reveal">
+            <h3 class="card-subtitle">CERTIFICATIONS &amp; BACKGROUND</h3>
+            <div class="education-list">
+              
+              <div class="education-item">
+                <div class="edu-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M6 9.5V16c0 3.3 2.7 6 6 6s6-2.7 6-6V9.5" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M22 10v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="edu-details">
+                  <h4 class="edu-title">BSc. Computer Technology</h4>
+                  <p class="edu-meta">Multimedia University of Kenya · Nairobi</p>
+                </div>
+              </div>
+
+              <div class="education-item">
+                <div class="edu-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </div>
+                <div class="edu-details">
+                  <h4 class="edu-title">Founder &amp; Lead Engineer</h4>
+                  <p class="edu-meta">45Creatives Studio · Web Design, Systems &amp; SEO</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section id="about" class="about-summary-section">
+    <div class="wrap">
+      <div class="about-glass-card reveal">
+        <div class="about-grid">
+          <div class="about-profile-col">
+            <span class="eyebrow-accent">ABOUT DENIS</span>
+            <h2 class="about-heading">Blending Engineering Precision with Digital Craft</h2>
+            <p class="about-lead">
+              I started programming by solving real-world friction. That turned into architecting full-stack digital platforms, client web studios, and automated quantitative systems.
+            </p>
+          </div>
+          <div class="about-narrative-col">
+            <p>
+              Today I lead <strong>45Creatives</strong>, building conversion-focused web applications, custom brand systems, and performance architectures for forward-thinking clients.
+            </p>
+            <p>
+              In parallel, I conduct research in algorithmic finance and automated telemetry — engineering multi-currency systems in MQL5 and Python. Whether building high-converting landing pages, M-Pesa billing gateways, or machine learning pipelines, my goal is always robust execution with flawless polish.
+            </p>
+            <div class="about-tags">
+              <span class="tag-pill">Full-Stack Architecture</span>
+              <span class="tag-pill">React &amp; Next.js</span>
+              <span class="tag-pill">Python &amp; ML</span>
+              <span class="tag-pill">Fintech Integrations</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= PROJECTS ================= -->
-  <section id="work">
+  <!-- ================= PROCESS SECTION ================= -->
+  <section id="process" class="process-section">
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Work</p>
-        <h2>Selected Projects</h2>
-        <p>A mix of client work, personal tools, and independent research - each one built and shipped.</p>
-      </div>
+      <h2 class="section-heading">MY DEVELOPMENT PROCESS</h2>
 
-      <div class="filter-row reveal" role="group" aria-label="Filter projects by category">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-btn" data-filter="web" aria-pressed="false">Web &amp; Design</button>
-        <button class="filter-btn" data-filter="platform" aria-pressed="false">Platforms</button>
-        <button class="filter-btn" data-filter="ai" aria-pressed="false">AI &amp; Automation</button>
-      </div>
-
-      <div class="projects-grid" id="projectsGrid">
-
-        <article class="project-card reveal" data-cat="web">
-          <div class="project-thumb project-thumb--logo"><img src="assets/img/projects/45creatives-logo.png" alt="45Creatives agency website" loading="lazy" width="900" height="600"></div>
-          <div class="project-body">
-            <p class="project-cat">Web &amp; Design</p>
-            <h4>45Creatives Studio</h4>
-            <p>Agency website for my own studio. Built to present services, generate leads, and manage client inquiries. Dark brand system with a custom design throughout.</p>
-            <div class="project-stack">
-              <span>TanStack Start</span><span>React 19</span><span>Supabase</span>
-            </div>
-            <div class="project-links">
-              <a href="https://www.45creative.co.ke/" class="project-link" target="_blank" rel="noopener">Live site
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
+      <div class="process-flow-card reveal">
+        
+        <!-- Step 01 -->
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h4 class="step-name">DISCOVER</h4>
+          <p class="step-desc">Understanding goals, user needs, and the problem space in depth.</p>
+          <div class="step-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card reveal" data-cat="web">
-          <div class="project-thumb"><img src="assets/img/projects/novia-network.jpg" alt="Novia Internet ISP website" loading="lazy" width="736" height="736"></div>
-          <div class="project-body">
-            <p class="project-cat">Web &amp; Design</p>
-            <h4>Novia Internet: ISP Website</h4>
-            <p>Marketing site for an internet service provider. Custom design with animated marquee, interactive elements, and responsive layout built from scratch with vanilla JavaScript.</p>
-            <div class="project-stack">
-              <span>HTML / CSS</span><span>JavaScript</span><span>Responsive</span>
-            </div>
-            <div class="project-links">
-              <span class="project-link" style="color: var(--text-dim);">Project details coming soon</span>
-            </div>
-          </div>
-        </article>
+        <div class="process-connector" aria-hidden="true"></div>
 
-        <article class="project-card reveal" data-cat="platform">
-          <div class="project-thumb"><img src="assets/img/projects/taskflow-workflow.jpg" alt="TaskFlow task management application" loading="lazy" width="730" height="885"></div>
-          <div class="project-body">
-            <p class="project-cat">Platform</p>
-            <h4>TaskFlow: Task Management App</h4>
-            <p>Full-stack task management application with JWT-based authentication, user accounts, and a dark interface designed for teams. REST API backend with Express and PostgreSQL.</p>
-            <div class="project-stack">
-              <span>Node.js</span><span>Express</span><span>JWT</span><span>PostgreSQL</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/DenisMungai" class="project-link" target="_blank" rel="noopener">GitHub
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
+        <!-- Step 02 -->
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h4 class="step-name">DEFINE</h4>
+          <p class="step-desc">Research, scope specifications, and turn insights into a clear roadmap.</p>
+          <div class="step-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card reveal" data-cat="platform">
-          <div class="project-thumb">
-            <span class="glyph">WB</span>
-          </div>
-          <div class="project-body">
-            <p class="project-cat">Platform / Fintech</p>
-            <h4>Wi-Fi Billing &amp; Payments System</h4>
-            <p>Billing platform for an ISP that integrates M-Pesa Daraja STK Push, Paystack, and Mikrotik RouterOS to automate hotspot access and payment collection.</p>
-            <div class="project-stack">
-              <span>FastAPI</span><span>PostgreSQL</span><span>M-Pesa Daraja</span><span>Paystack</span>
-            </div>
-            <div class="project-links">
-              <span class="project-link" style="color: var(--text-dim);">Private repository</span>
-            </div>
-          </div>
-        </article>
+        <div class="process-connector" aria-hidden="true"></div>
 
-        <article class="project-card reveal" data-cat="ai">
-          <div class="project-thumb"><img src="assets/img/projects/wakawaka-motodroid.jpg" alt="WakaWaka algorithmic trading system" loading="lazy" width="591" height="739"></div>
-          <div class="project-body">
-            <p class="project-cat">AI &amp; Automation</p>
-            <h4>WakaWaka: Algorithmic Trading EA</h4>
-            <p>Multi-symbol mean-reversion grid trading system written in MQL5 for MetaTrader 5. Runs across correlated currency pairs with automated position management.</p>
-            <div class="project-stack">
-              <span>MQL5</span><span>MetaTrader 5</span>
-            </div>
-            <div class="project-links">
-              <span class="project-link" style="color: var(--text-dim);">Private project</span>
-            </div>
+        <!-- Step 03 -->
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h4 class="step-name">DESIGN</h4>
+          <p class="step-desc">Architecting intuitive interfaces, prototypes, and schema with clarity.</p>
+          <div class="step-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M5.5 18.5L18.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card reveal" data-cat="ai">
-          <div class="project-thumb"><img src="assets/img/projects/xauusd-data-tunnel.jpg" alt="XAUUSD quantitative trading research" loading="lazy" width="562" height="1000"></div>
-          <div class="project-body">
-            <p class="project-cat">AI &amp; Automation</p>
-            <h4>XAUUSD Quant System</h4>
-            <p>Python-based trading research system that combines Hidden Markov Models and LSTM networks with a walk-forward backtesting framework for gold price prediction.</p>
-            <div class="project-stack">
-              <span>Python</span><span>LSTM</span><span>HMM</span><span>scikit-learn</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/DenisMungai" class="project-link" target="_blank" rel="noopener">GitHub
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
+        <div class="process-connector" aria-hidden="true"></div>
+
+        <!-- Step 04 -->
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <h4 class="step-name">DEVELOP</h4>
+          <p class="step-desc">Building clean, scalable, production code with robust modern tools.</p>
+          <div class="step-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13 4l-2 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-        </article>
+        </div>
+
+        <div class="process-connector" aria-hidden="true"></div>
+
+        <!-- Step 05 -->
+        <div class="process-step">
+          <div class="step-num">05</div>
+          <h4 class="step-name">DELIVER</h4>
+          <p class="step-desc">Testing, optimization, deployment, and seamless digital handoff.</p>
+          <div class="step-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09zM12 15l-3-3m5.5-2.5l5 5M19 5l-7 7M15 2l7 7-2 4-9-9 4-2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ================= ABOUT ================= -->
-  <section id="about">
+  <!-- ================= CTA BANNER ("LET'S CREATE SOMETHING EXTRAORDINARY") ================= -->
+  <section class="extraordinary-cta-section">
     <div class="wrap">
-      <div class="about-grid">
-        <div class="about-sidebar reveal">
-          <div class="about-card">
-            <p class="role">Currently</p>
-            <h4>Founder &amp; Lead Developer, 45Creatives</h4>
-            <p>Websites, branding, UI/UX, and SEO for growing businesses in Kenya.</p>
+      <div class="extraordinary-card reveal">
+        
+        <!-- Metallic reflection sheen overlay -->
+        <div class="metallic-sheen-highlight" aria-hidden="true"></div>
+
+        <!-- Column 1: Massive Headline -->
+        <div class="cta-col-headline">
+          <h2 class="extraordinary-title">
+            <span class="cta-line">LET'S CREATE</span>
+            <span class="cta-line">SOMETHING</span>
+            <span class="cta-line cta-line--flex">
+              EXTRAORDINARY
+              <svg class="cta-sparkle" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 0L14 9.5L24 12L14 14.5L12 24L10 14.5L0 12L10 9.5L12 0Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </h2>
+        </div>
+
+        <!-- Column 2: Status & CTA Button -->
+        <div class="cta-col-action">
+          <p class="cta-status-text">
+            I'm currently available for freelance projects, full-time opportunities, and collaborations.
+          </p>
+          <a href="#contact" class="btn-metallic-pill">
+            <span>LET'S WORK TOGETHER</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Column 3: Contact Info List -->
+        <div class="cta-col-contact">
+          <div class="contact-entry">
+            <div class="contact-entry-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4h16v16H4V4zm0 0l8 8 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <a href="mailto:mungaidenis45@gmail.com" class="contact-entry-text">mungaidenis45@gmail.com</a>
           </div>
-          <div class="about-card">
-            <p class="role">Education</p>
-            <h4>BSc. Computer Technology</h4>
-            <p>Multimedia University of Kenya</p>
+
+          <div class="contact-entry">
+            <div class="contact-entry-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006.2 6.2l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.7 2.1z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <a href="tel:+254707317670" class="contact-entry-text">+254 707 317 670</a>
+          </div>
+
+          <div class="contact-entry">
+            <div class="contact-entry-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M12 22s8-6.5 8-12a8 8 0 10-16 0c0 5.5 8 12 8 12z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <span class="contact-entry-text">Nairobi, Kenya</span>
+          </div>
+
+          <div class="contact-entry">
+            <div class="contact-entry-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <a href="https://www.denismungai.dev/" class="contact-entry-text">www.denismungai.dev</a>
           </div>
         </div>
-        <div class="reveal">
-          <p class="eyebrow">About</p>
-          <div class="about-content">
-            <p>I started programming by trying to fix things that were broken. That turned into building things from scratch - websites at first, then full-stack applications, then trading systems and automation tools.</p>
-            <p>Today I run <strong>45Creatives</strong>, a web studio where I design and build websites, dashboards, and brand systems for clients. Independently, I work on projects like <strong>algorithmic trading systems in MQL5 and Python</strong>, a <strong>billing platform that integrates M-Pesa and Mikrotik</strong>, and various automation tools.</p>
-            <p>I'm most interested in work that involves solving a real problem with code - whether that's a client website that needs to convert visitors, a backend system that needs to handle payments reliably, or a data pipeline that needs to process market data in real time.</p>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ================= EXPERIENCE ================= -->
-  <section id="experience">
+  <!-- ================= INLINE CONTACT FORM MODAL / SECTION ================= -->
+  <section id="contact" class="contact-form-section">
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Experience</p>
-        <h2>Background</h2>
-      </div>
-      <div class="timeline reveal">
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <h4>Founder &amp; Lead Developer, 45Creatives</h4>
-          <p class="t-meta">Nairobi, Kenya · Ongoing</p>
-          <ul>
-            <li>Design and build custom websites, landing pages, and dashboards for small and growing businesses</li>
-            <li>Lead frontend architecture using React, TanStack, and modern component systems</li>
-            <li>Deliver branding, logo design, and ad creatives alongside web builds</li>
-            <li>Run technical SEO and performance optimization for every client site</li>
-            <li>Manage WordPress builds and ongoing website maintenance for clients</li>
-          </ul>
-        </div>
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <h4>Independent Software &amp; AI Developer</h4>
-          <p class="t-meta">Self-directed · Ongoing</p>
-          <ul>
-            <li>Built and debugged multiple MQL5 trading systems (WakaWaka, XAUUSD strategies) for MetaTrader 5</li>
-            <li>Developed a Wi-Fi billing platform integrating M-Pesa, Paystack, and Mikrotik RouterOS</li>
-            <li>Built a Python-based quantitative trading system combining HMM and LSTM models</li>
-            <li>Shipped a full-stack task management app with JWT authentication</li>
-          </ul>
-        </div>
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <h4>BSc. Computer Technology</h4>
-          <p class="t-meta">Multimedia University of Kenya</p>
-          <ul>
-            <li>Coursework in software engineering, databases, AI/ML, and systems design</li>
-            <li>Applied object-oriented analysis and design methodology to project documentation</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SERVICES ================= -->
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Services</p>
-        <h2>What I Build</h2>
-        <p>From a single landing page to a full application, scoped to what your project needs.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <p class="service-num mono">01</p>
-          <h4>Website Development</h4>
-          <p>Business websites and landing pages built from scratch - custom code, no page-builder templates.</p>
-        </div>
-        <div class="service-card reveal">
-          <p class="service-num mono">02</p>
-          <h4>Web Applications &amp; Dashboards</h4>
-          <p>Full-stack apps with authentication, databases, REST APIs, and admin interfaces built around your workflow.</p>
-        </div>
-        <div class="service-card reveal">
-          <p class="service-num mono">03</p>
-          <h4>AI &amp; Automation</h4>
-          <p>Integrating AI into products and workflows where it removes repetitive work or improves decision-making.</p>
-        </div>
-        <div class="service-card reveal">
-          <p class="service-num mono">04</p>
-          <h4>UI/UX &amp; Brand Design</h4>
-          <p>Interfaces and brand systems with clear typography, color, and layout - designed in Figma, built in code.</p>
-        </div>
-        <div class="service-card reveal">
-          <p class="service-num mono">05</p>
-          <h4>SEO &amp; Performance</h4>
-          <p>Technical SEO, Core Web Vitals, structured data, and page speed optimization.</p>
-        </div>
-        <div class="service-card reveal">
-          <p class="service-num mono">06</p>
-          <h4>WordPress Development</h4>
-          <p>Custom WordPress theme builds and ongoing website maintenance for teams without in-house developers.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= TECH STACK ================= -->
-  <section id="stack">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Stack</p>
-        <h2>Technologies I Use</h2>
-      </div>
-      <div class="stack-section reveal">
-        <div class="stack-group">
-          <h4>Frontend</h4>
-          <ul>
-            <li>React</li>
-            <li>Next.js</li>
-            <li>TypeScript</li>
-            <li>Tailwind CSS</li>
-            <li>HTML / CSS</li>
-          </ul>
-        </div>
-        <div class="stack-group">
-          <h4>Backend</h4>
-          <ul>
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>Python</li>
-            <li>FastAPI</li>
-          </ul>
-        </div>
-        <div class="stack-group">
-          <h4>Database</h4>
-          <ul>
-            <li>PostgreSQL</li>
-            <li>MySQL</li>
-            <li>Supabase</li>
-          </ul>
-        </div>
-        <div class="stack-group">
-          <h4>AI / Data</h4>
-          <ul>
-            <li>scikit-learn</li>
-            <li>LSTM / HMM</li>
-            <li>MQL5</li>
-          </ul>
-        </div>
-        <div class="stack-group">
-          <h4>Tools</h4>
-          <ul>
-            <li>Git / GitHub</li>
-            <li>Figma</li>
-            <li>REST APIs</li>
-            <li>WordPress</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Contact</p>
-        <h2>Get in Touch</h2>
-        <p>Tell me about your project. I typically reply within 24 hours.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info-card reveal">
-          <div class="contact-row">
-            <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4zm0 0l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div>
-              <p class="label">Email</p>
-              <p class="value"><a href="mailto:mungaidenis45@gmail.com">mungaidenis45@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006.2 6.2l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.7 2.1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div>
-              <p class="label">Phone / WhatsApp</p>
-              <p class="value"><a href="tel:+254707317670">+254 707 317 670</a></p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-6.5 8-12a8 8 0 10-16 0c0 5.5 8 12 8 12z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg></div>
-            <div>
-              <p class="label">Location</p>
-              <p class="value">Nairobi, Kenya</p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.1 3.1 0 00-.9-2.4c2.9-.3 6-1.5 6-6.4a5 5 0 00-1.3-3.4 4.7 4.7 0 00-.1-3.4s-1.1-.3-3.6 1.3a12.3 12.3 0 00-6.4 0C6.2 1.7 5.1 2 5.1 2a4.7 4.7 0 00-.1 3.4A5 5 0 003.7 8.8c0 4.9 3 6.1 6 6.4a3.1 3.1 0 00-.9 2.4V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div>
-              <p class="label">GitHub</p>
-              <p class="value"><a href="https://github.com/DenisMungai" class="mono" target="_blank" rel="noopener">github.com/DenisMungai</a></p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-            <div>
-              <p class="label">LinkedIn</p>
-              <p class="value"><a href="https://www.linkedin.com/in/denis-mungai-31626a390" class="mono" target="_blank" rel="noopener">in/denis-mungai</a></p>
-            </div>
-          </div>
+      <div class="contact-form-container reveal">
+        <div class="contact-form-header">
+          <p class="contact-eyebrow">GET IN TOUCH</p>
+          <h3 class="contact-headline">Send a Direct Inquiry</h3>
+          <p class="contact-sub">Have a project or partnership in mind? I typically reply within 24 hours.</p>
         </div>
 
-        <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/ajax/mungaidenis45@gmail.com" method="POST">
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/mungaidenis45@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New project inquiry from portfolio">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+          
           <div class="form-row">
             <div class="form-field">
-              <label for="name">Full name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Alex Morgan" required>
             </div>
             <div class="form-field">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" placeholder="jane@company.com" required>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="alex@company.com" required>
             </div>
           </div>
+
           <div class="form-field">
-            <label for="project-type">Project type</label>
+            <label for="project-type">Project Scope</label>
             <select id="project-type" name="project_type">
-              <option>Website Development</option>
               <option>Web Application / Dashboard</option>
-              <option>AI / Automation</option>
-              <option>UI/UX &amp; Brand Design</option>
-              <option>SEO &amp; Performance</option>
-              <option>WordPress Development</option>
+              <option>Website Design &amp; Development</option>
+              <option>AI &amp; Automation Systems</option>
+              <option>Fintech / Payment Integrations</option>
+              <option>UI/UX &amp; Design Systems</option>
               <option>Something else</option>
             </select>
           </div>
-          <div class="form-field">
-            <label for="message">Project details</label>
-            <textarea id="message" name="message" placeholder="Tell me about what you're building, your timeline, and your budget range." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-            <span id="submitBtnText">Send Message</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <p id="formStatus" role="status" aria-live="polite" class="form-status"></p>
-          <p class="form-note">This form emails me directly. I usually respond within 24 hours.</p>
-        </form>
-      </div>
-    </div>
-  </section>
 
-  <!-- ================= FINAL CTA ================= -->
-  <section class="section-notop">
-    <div class="wrap">
-      <div class="cta-banner reveal">
-        <div class="cta-inner">
-          <h2>Have a project in mind?</h2>
-          <a href="#contact" class="btn btn-primary">Start a conversation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
+          <div class="form-field">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project, timeline, and goals..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-pill-glow full-width" id="submitBtn">
+            <span id="submitBtnText">SEND MESSAGE</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <p id="formStatus" role="status" aria-live="polite" class="form-status-msg"></p>
+        </form>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <a href="#main" class="logo">
-        <span class="logo-mark" aria-hidden="true">DM</span>
-        <span>Denis Mungai</span>
-      </a>
-      <div class="footer-links">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#stack">Stack</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="social-row">
-        <a href="https://github.com/DenisMungai" aria-label="GitHub" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.1 3.1 0 00-.9-2.4c2.9-.3 6-1.5 6-6.4a5 5 0 00-1.3-3.4 4.7 4.7 0 00-.1-3.4s-1.1-.3-3.6 1.3a12.3 12.3 0 00-6.4 0C6.2 1.7 5.1 2 5.1 2a4.7 4.7 0 00-.1 3.4A5 5 0 003.7 8.8c0 4.9 3 6.1 6 6.4a3.1 3.1 0 00-.9 2.4V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://www.linkedin.com/in/denis-mungai-31626a390" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
-        <a href="mailto:mungaidenis45@gmail.com" aria-label="Email"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4zm0 0l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
+<!-- ================= MINIMAL SLEEK FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap footer-wrap">
+    <div class="footer-left">
+      <p class="copyright-text">&copy; <span id="year">2026</span> Denis Mungai. All Rights Reserved.</p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Denis Mungai. All rights reserved.</p>
-      <p>Nairobi, Kenya · Founder, <a href="https://www.45creative.co.ke/" target="_blank" rel="noopener" style="color: var(--text-secondary);">45Creatives</a></p>
+
+    <div class="footer-right">
+      <span class="connect-label">LET'S CONNECT</span>
+      <div class="social-icons-row">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/denis-mungai-31626a390" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10 9v12M10 13a4 4 0 018 0v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/DenisMungai" target="_blank" rel="noopener" class="social-icon-btn" aria-label="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.1 3.1 0 00-.9-2.4c2.9-.3 6-1.5 6-6.4a5 5 0 00-1.3-3.4 4.7 4.7 0 00-.1-3.4s-1.1-.3-3.6 1.3a12.3 12.3 0 00-6.4 0C6.2 1.7 5.1 2 5.1 2a4.7 4.7 0 00-.1 3.4A5 5 0 003.7 8.8c0 4.9 3 6.1 6 6.4a3.1 3.1 0 00-.9 2.4V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:mungaidenis45@gmail.com" class="social-icon-btn" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M4 4h16v16H4V4zm0 0l8 8 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Phone / WhatsApp -->
+        <a href="tel:+254707317670" class="social-icon-btn" aria-label="Phone / WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006.2 6.2l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.7 2.1z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>

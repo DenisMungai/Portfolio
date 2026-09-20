@@ -1,10 +1,10 @@
-// Year
+// Dynamic Year
 const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// Mobile menu
+// Mobile Drawer Navigation
 const burgerBtn = document.getElementById('burgerBtn');
 const closeMenuBtn = document.getElementById('closeMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -16,7 +16,6 @@ function openMenu() {
   burgerBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
 
-  // Set focus to the close button or first interactive element
   const focusable = mobileMenu.querySelectorAll('button, a[href]');
   if (focusable.length > 0) {
     focusable[0].focus();
@@ -43,7 +42,7 @@ if (closeMenuBtn) {
 if (mobileMenu) {
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-  // Trap focus and handle Escape inside mobile menu
+  // Trap focus and handle Escape key inside mobile menu
   mobileMenu.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeMenu();
@@ -78,12 +77,11 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Reveal on scroll
+// Scroll Reveal Animations
 const revealEls = document.querySelectorAll('.reveal');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (prefersReducedMotion) {
-  // Show everything immediately if user prefers reduced motion
   revealEls.forEach(el => el.classList.add('in'));
 } else {
   const revealObserver = new IntersectionObserver((entries) => {
@@ -93,31 +91,73 @@ if (prefersReducedMotion) {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   revealEls.forEach(el => revealObserver.observe(el));
 }
 
-// Project filter
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+// Project Filter Buttons
+const filterPills = document.querySelectorAll('.filter-pill');
+const workCards = document.querySelectorAll('#projectsGrid .work-card');
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => {
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed', 'false');
+filterPills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    filterPills.forEach(p => {
+      p.classList.remove('active');
+      p.setAttribute('aria-pressed', 'false');
     });
-    btn.classList.add('active');
-    btn.setAttribute('aria-pressed', 'true');
-    const filter = btn.getAttribute('data-filter');
-    projectCards.forEach(card => {
-      const show = filter === 'all' || card.getAttribute('data-cat') === filter;
-      card.style.display = show ? '' : 'none';
+    pill.classList.add('active');
+    pill.setAttribute('aria-pressed', 'true');
+
+    const filter = pill.getAttribute('data-filter');
+
+    workCards.forEach(card => {
+      const isFeatured = card.getAttribute('data-featured') === 'true';
+      const category = card.getAttribute('data-cat');
+
+      let show = false;
+      if (filter === 'featured') {
+        show = isFeatured;
+      } else if (filter === 'all') {
+        show = true;
+      } else {
+        show = category === filter;
+      }
+
+      if (show) {
+        card.style.display = 'flex';
+        setTimeout(() => card.classList.add('in'), 50);
+      } else {
+        card.style.display = 'none';
+      }
     });
   });
 });
 
-// Contact form - AJAX submit
+// Active Navigation link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links .nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+}, { passive: true });
+
+// Contact form - AJAX submit with FormSubmit.co
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   const submitBtn = document.getElementById('submitBtn');
@@ -127,7 +167,7 @@ if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     submitBtn.disabled = true;
-    submitBtnText.textContent = 'Sending...';
+    submitBtnText.textContent = 'SENDING...';
     formStatus.textContent = '';
     formStatus.style.color = '';
 
@@ -139,19 +179,19 @@ if (contactForm) {
       });
 
       if (response.ok) {
-        formStatus.textContent = 'Message sent - I will get back to you within 24 hours.';
+        formStatus.textContent = 'Message sent! I will get back to you within 24 hours.';
         formStatus.style.color = '#4ADE80';
         contactForm.reset();
       } else {
-        formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
+        formStatus.textContent = 'Something went wrong. Please try again or email mungaidenis45@gmail.com directly.';
         formStatus.style.color = '#F87171';
       }
     } catch (err) {
-      formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
+      formStatus.textContent = 'Something went wrong. Please try again or email mungaidenis45@gmail.com directly.';
       formStatus.style.color = '#F87171';
     } finally {
       submitBtn.disabled = false;
-      submitBtnText.textContent = 'Send Message';
+      submitBtnText.textContent = 'SEND MESSAGE';
     }
   });
 }
