@@ -4,15 +4,17 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// Mobile Drawer Navigation
+// Mobile Drawer Navigation (Half-screen menu with backdrop)
 const burgerBtn = document.getElementById('burgerBtn');
 const closeMenuBtn = document.getElementById('closeMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
+const drawerBackdrop = document.getElementById('drawerBackdrop');
 
 function openMenu() {
   if (!mobileMenu || !burgerBtn) return;
   mobileMenu.classList.add('open');
   mobileMenu.setAttribute('aria-hidden', 'false');
+  if (drawerBackdrop) drawerBackdrop.classList.add('open');
   burgerBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
 
@@ -26,6 +28,7 @@ function closeMenu() {
   if (!mobileMenu || !burgerBtn) return;
   mobileMenu.classList.remove('open');
   mobileMenu.setAttribute('aria-hidden', 'true');
+  if (drawerBackdrop) drawerBackdrop.classList.remove('open');
   burgerBtn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
   burgerBtn.focus();
@@ -37,6 +40,10 @@ if (burgerBtn && mobileMenu) {
 
 if (closeMenuBtn) {
   closeMenuBtn.addEventListener('click', closeMenu);
+}
+
+if (drawerBackdrop) {
+  drawerBackdrop.addEventListener('click', closeMenu);
 }
 
 if (mobileMenu) {
