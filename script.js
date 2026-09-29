@@ -1,204 +1,118 @@
-// Dynamic Year
-const yearEl = document.getElementById('year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-// Mobile Drawer Navigation (Half-screen menu with backdrop)
-const burgerBtn = document.getElementById('burgerBtn');
-const closeMenuBtn = document.getElementById('closeMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const drawerBackdrop = document.getElementById('drawerBackdrop');
-
-function openMenu() {
-  if (!mobileMenu || !burgerBtn) return;
-  mobileMenu.classList.add('open');
-  mobileMenu.setAttribute('aria-hidden', 'false');
-  if (drawerBackdrop) drawerBackdrop.classList.add('open');
-  burgerBtn.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-
-  const focusable = mobileMenu.querySelectorAll('button, a[href]');
-  if (focusable.length > 0) {
-    focusable[0].focus();
-  }
-}
-
-function closeMenu() {
-  if (!mobileMenu || !burgerBtn) return;
-  mobileMenu.classList.remove('open');
-  mobileMenu.setAttribute('aria-hidden', 'true');
-  if (drawerBackdrop) drawerBackdrop.classList.remove('open');
-  burgerBtn.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-  burgerBtn.focus();
-}
-
-if (burgerBtn && mobileMenu) {
-  burgerBtn.addEventListener('click', openMenu);
-}
-
-if (closeMenuBtn) {
-  closeMenuBtn.addEventListener('click', closeMenu);
-}
-
-if (drawerBackdrop) {
-  drawerBackdrop.addEventListener('click', closeMenu);
-}
-
-if (mobileMenu) {
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-  // Trap focus and handle Escape key inside mobile menu
-  mobileMenu.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeMenu();
-      return;
-    }
-
-    if (e.key === 'Tab') {
-      const focusableEls = mobileMenu.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      if (focusableEls.length === 0) return;
-      const firstEl = focusableEls[0];
-      const lastEl = focusableEls[focusableEls.length - 1];
-
-      if (e.shiftKey) {
-        if (document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
-        }
-      } else {
-        if (document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
-        }
-      }
-    }
+  // Mobile menu
+  const burgerBtn = document.getElementById('burgerBtn');
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
+    burgerBtn.setAttribute('aria-expanded','true');
   });
-}
+  closeMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded','false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded','false');
+  }));
 
-// Global escape key listener
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
-    closeMenu();
-  }
-});
-
-// Scroll Reveal Animations
-const revealEls = document.querySelectorAll('.reveal');
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (prefersReducedMotion) {
-  revealEls.forEach(el => el.classList.add('in'));
-} else {
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if(entry.isIntersecting){
         entry.target.classList.add('in');
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.12 });
   revealEls.forEach(el => revealObserver.observe(el));
-}
 
-// Project Filter Buttons
-const filterPills = document.querySelectorAll('.filter-pill');
-const workCards = document.querySelectorAll('#projectsGrid .work-card');
-
-filterPills.forEach(pill => {
-  pill.addEventListener('click', () => {
-    filterPills.forEach(p => {
-      p.classList.remove('active');
-      p.setAttribute('aria-pressed', 'false');
-    });
-    pill.classList.add('active');
-    pill.setAttribute('aria-pressed', 'true');
-
-    const filter = pill.getAttribute('data-filter');
-
-    workCards.forEach(card => {
-      const isFeatured = card.getAttribute('data-featured') === 'true';
-      const category = card.getAttribute('data-cat');
-
-      let show = false;
-      if (filter === 'featured') {
-        show = isFeatured;
-      } else if (filter === 'all') {
-        show = true;
-      } else {
-        show = category === filter;
-      }
-
-      if (show) {
-        card.style.display = 'flex';
-        setTimeout(() => card.classList.add('in'), 50);
-      } else {
-        card.style.display = 'none';
+  // Stat counters
+  const statEls = document.querySelectorAll('.stat-num');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 40));
+        const timer = setInterval(() => {
+          current += step;
+          if(current >= target){ current = target; clearInterval(timer); }
+          el.textContent = current;
+        }, 35);
+        statObserver.unobserve(el);
       }
     });
-  });
-});
+  }, { threshold: 0.4 });
+  statEls.forEach(el => statObserver.observe(el));
 
-// Active Navigation link on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links .nav-link');
+  // Skill bar fills
+  const fillEls = document.querySelectorAll('.skill-fill');
+  const fillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.width = entry.target.getAttribute('data-fill') + '%';
+        fillObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  fillEls.forEach(el => fillObserver.observe(el));
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  const scrollY = window.pageYOffset;
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.offsetHeight;
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-}, { passive: true });
-
-// Contact form - AJAX submit with FormSubmit.co
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  const submitBtn = document.getElementById('submitBtn');
-  const submitBtnText = document.getElementById('submitBtnText');
-  const formStatus = document.getElementById('formStatus');
-
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtnText.textContent = 'SENDING...';
-    formStatus.textContent = '';
-    formStatus.style.color = '';
-
-    try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(contactForm)
+  // Project filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      projectCards.forEach(card => {
+        const show = filter === 'all' || card.getAttribute('data-cat') === filter;
+        card.style.display = show ? 'flex' : 'none';
       });
-
-      if (response.ok) {
-        formStatus.textContent = 'Message sent! I will get back to you within 24 hours.';
-        formStatus.style.color = '#4ADE80';
-        contactForm.reset();
-      } else {
-        formStatus.textContent = 'Something went wrong. Please try again or email mungaidenis45@gmail.com directly.';
-        formStatus.style.color = '#F87171';
-      }
-    } catch (err) {
-      formStatus.textContent = 'Something went wrong. Please try again or email mungaidenis45@gmail.com directly.';
-      formStatus.style.color = '#F87171';
-    } finally {
-      submitBtn.disabled = false;
-      submitBtnText.textContent = 'SEND MESSAGE';
-    }
+    });
   });
-}
+
+
+  // Contact form — AJAX submit (no captcha redirect, inline success/failure feedback)
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm){
+    const submitBtn = document.getElementById('submitBtn');
+    const submitBtnText = document.getElementById('submitBtnText');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtnText.textContent = 'Sending…';
+      formStatus.textContent = '';
+      formStatus.style.color = '';
+
+      try{
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm)
+        });
+
+        if(response.ok){
+          formStatus.textContent = 'Submitted successfully — I\u2019ll get back to you within 24 hours.';
+          formStatus.style.color = '#4ADE80';
+          contactForm.reset();
+        } else {
+          formStatus.textContent = 'Failed to submit. Please try again or email me directly.';
+          formStatus.style.color = '#F87171';
+        }
+      } catch(err){
+        formStatus.textContent = 'Failed to submit. Please try again or email me directly.';
+        formStatus.style.color = '#F87171';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtnText.textContent = 'Send Message';
+      }
+    });
+  }
