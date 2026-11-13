@@ -30,13 +30,19 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // Stat counters
+  // Stat counters. `data-count-of` counts matching elements on the page, so the
+  // stats always agree with the projects, stack and services actually shown.
   const statEls = document.querySelectorAll('.stat-num');
+  const statTarget = (el) => {
+    const selector = el.getAttribute('data-count-of');
+    return selector ? document.querySelectorAll(selector).length : parseInt(el.getAttribute('data-count'), 10);
+  };
+  statEls.forEach(el => { el.textContent = statTarget(el); });
   const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
         const el = entry.target;
-        const target = parseInt(el.getAttribute('data-count'), 10);
+        const target = statTarget(el);
         let current = 0;
         const step = Math.max(1, Math.ceil(target / 40));
         const timer = setInterval(() => {
@@ -50,26 +56,19 @@
   }, { threshold: 0.4 });
   statEls.forEach(el => statObserver.observe(el));
 
-  // Skill bar fills
-  const fillEls = document.querySelectorAll('.skill-fill');
-  const fillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.width = entry.target.getAttribute('data-fill') + '%';
-        fillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  fillEls.forEach(el => fillObserver.observe(el));
-
   // Project filter
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('#projectsGrid .project-card');
   filterBtns.forEach(btn => {
+    // Never show a filter that would empty the grid
+    const filter = btn.getAttribute('data-filter');
+    if(filter !== 'all' && !document.querySelector(`#projectsGrid .project-card[data-cat="${filter}"]`)){
+      btn.hidden = true;
+    }
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
       btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
+      btn.setAttribute('aria-pressed','true');
       projectCards.forEach(card => {
         const show = filter === 'all' || card.getAttribute('data-cat') === filter;
         card.style.display = show ? 'flex' : 'none';
@@ -78,7 +77,7 @@
   });
 
 
-  // Contact form — AJAX submit (no captcha redirect, inline success/failure feedback)
+  // Contact form - AJAX submit (no captcha redirect, inline success/failure feedback)
   const contactForm = document.getElementById('contactForm');
   if(contactForm){
     const submitBtn = document.getElementById('submitBtn');
@@ -88,7 +87,7 @@
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
-      submitBtnText.textContent = 'Sending…';
+      submitBtnText.textContent = 'Sending...';
       formStatus.textContent = '';
       formStatus.style.color = '';
 
@@ -100,7 +99,7 @@
         });
 
         if(response.ok){
-          formStatus.textContent = 'Submitted successfully — I\u2019ll get back to you within 24 hours.';
+          formStatus.textContent = 'Submitted successfully. I\u2019ll get back to you within 24 hours.';
           formStatus.style.color = '#4ADE80';
           contactForm.reset();
         } else {
